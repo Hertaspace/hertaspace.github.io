@@ -49,6 +49,8 @@
     <h2>What it leaves out</h2>
     <p>This is a demonstration, not a research simulator.</p>
     <ul><li>Measurement errors are modelled directly, with no gate-level circuit underneath.</li><li>Weights are plain lattice distances, not derived from error probabilities.</li><li>X and Z errors are decoded separately, so the correlation in a Y error is ignored.</li><li>Only Pauli errors are tracked, classically. No quantum state is simulated.</li><li>The decoder streams, so its pairs are never revisited. To stay real-time, each round considers at most 110 events per lattice from a window of eight rounds, oldest first. The result is therefore not the global optimum for the whole run.</li><li>At the top of the sliders the decoder falls behind, and several hundred events stay open.</li></ul>
+    <h2>Source</h2>
+    <p>The code, the tests and a standalone demo are on GitHub at <a href="https://github.com/Hertaspace/live-surface-code">Hertaspace/live-surface-code</a>, under the Apache License 2.0.</p>
     <footer class="note-footer">
       <p>Last revised <time datetime="2026-10-31">2026-10-31</time>.</p>
     </footer>

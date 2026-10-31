@@ -61,3 +61,7 @@ This is a demonstration, not a research simulator.
 - Only Pauli errors are tracked, classically. No quantum state is simulated.
 - The decoder streams, so its pairs are never revisited. To stay real-time, each round considers at most 110 events per lattice from a window of eight rounds, oldest first. The result is therefore not the global optimum for the whole run.
 - At the top of the sliders the decoder falls behind, and several hundred events stay open.
+
+## Source
+
+The code, the tests and a standalone demo are on GitHub at [Hertaspace/live-surface-code](https://github.com/Hertaspace/live-surface-code), under the Apache License 2.0.
