@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hertaspace · Yaoling Yang</title>
+  <meta name="description" content="Hertaspace is the log of Yaoling Yang: research, learning, and whatever else I find interesting, in quantum metrology and quantum error correction.">
+  <link rel="canonical" href="https://hertaspace.github.io/">
+  <meta property="og:title" content="Hertaspace · Yaoling Yang">
+  <meta property="og:description" content="A log of research, learning, and whatever else I find interesting.">
+  <meta property="og:image" content="https://hertaspace.github.io/avatar.jpg">
+  <link rel="icon" href="avatar.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Research notes" href="feed.xml">
+  <link rel="preload" href="fonts/newsreader-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#f0e9dd">
+  <link rel="stylesheet" id="css-light" href="light.css">
+  <link rel="stylesheet" id="css-dark" href="dark.css" media="not all">
+  <script>(function(){var t="dark";try{t=localStorage.getItem("site-theme")||"dark"}catch(e){}var r=document.documentElement;r.dataset.theme=t;document.getElementById("css-light").media=t==="dark"?"not all":"all";document.getElementById("css-dark").media=t==="dark"?"all":"not all";document.querySelector('meta[name="theme-color"]').content=t==="dark"?"#2f0f2d":"#f0e9dd"})()</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yaoling Yang",
+    "url": "https://hertaspace.github.io/",
+    "image": "https://hertaspace.github.io/avatar.jpg",
+    "knowsAbout": ["quantum metrology", "quantum error correction"],
+    "sameAs": ["https://github.com/Hertaspace"]
+  }
+  </script>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div class="shell">
+  <aside class="intro">
+    <img class="avatar" src="avatar.jpg" alt="" width="104" height="104">
+    <h1>Welcome to Hertaspace</h1>
+    <p class="bio">Hi, this is Yaoling. I work on quantum metrology and quantum error correction. This is a running log of what holds my focus, and of my occasional decoherence.</p>
+    <p class="links"><a href="https://github.com/Hertaspace">GitHub</a></p>
+  </aside>
+
+  <main class="sheet">
+    <header class="sheet-head">
+      <h2>Research log</h2>
+    </header>
+
+    <section class="year">
+      <h3>2026</h3>
+      <ol class="log">
+        <li class="entry">
+          <p class="stamp"><time datetime="2026-10-25">Oct 25</time><span class="tag formal">Formalized</span></p>
+          <h4><a href="notes/sic-povms-lean.html">SIC-POVMs in every dimension, formalized in Lean 4</a></h4>
+          <p>A machine-checked Lean 4 proof that SIC-POVMs exist in every finite dimension, the existence part of Zauner's conjecture. It follows the proof of Radchenko and Wheeler, with a theorem of Appleby, Flammia and Kopp. Written by AI agents under human direction. Accepted by six kernels. <a href="https://github.com/Hertaspace/sic-povm-lean">Repository</a></p>
+        </li>
+      </ol>
+    </section>
+
+    <footer>
+      <p class="dark-only-note">This background is a live quantum error correction simulation. <a href="how-it-works.html">How it works</a></p>
+      <p>&copy; 2026 Yaoling Yang</p>
+    </footer>
+  </main>
+</div>
+<script src="site.js" defer></script>
+</body>
+</html>

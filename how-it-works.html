@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How it works · Yaoling Yang</title>
+  <meta name="description" content="The dark background of this site is a simulation, not a canned animation. It runs a planar surface code with bit-flip, phase-flip and measurement errors, and decodes it round by round with minimum-weight perfect matching in spacetime.">
+  <link rel="canonical" href="https://hertaspace.github.io/how-it-works.html">
+  <link rel="alternate" type="text/markdown" href="how-it-works.md">
+  <link rel="icon" href="avatar.jpg">
+  <link rel="preload" href="fonts/newsreader-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#f0e9dd">
+  <link rel="stylesheet" id="css-light" href="light.css">
+  <link rel="stylesheet" id="css-dark" href="dark.css" media="not all">
+  <script>(function(){var t="dark";try{t=localStorage.getItem("site-theme")||"dark"}catch(e){}var r=document.documentElement;r.dataset.theme=t;document.getElementById("css-light").media=t==="dark"?"not all":"all";document.getElementById("css-dark").media=t==="dark"?"all":"not all";document.querySelector('meta[name="theme-color"]').content=t==="dark"?"#2f0f2d":"#f0e9dd"})()</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How it works", "datePublished": "2026-10-31", "abstract": "The dark background of this site is a simulation, not a canned animation. It runs a planar surface code with bit-flip, phase-flip and measurement errors, and decodes it round by round with minimum-weight perfect matching in spacetime.", "url": "https://hertaspace.github.io/how-it-works.html", "author": [{"@type": "Person", "name": "Yaoling Yang"}], "keywords": ["surface code", "minimum-weight perfect matching", "MWPM", "spacetime decoding", "measurement errors", "quantum error correction"], "isPartOf": {"@type": "WebSite", "name": "Hertaspace", "url": "https://hertaspace.github.io/"}}</script>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<nav class="topnav"><a href="./">Hertaspace</a><a href="how-it-works.md">Markdown</a></nav>
+<main class="note">
+  <article>
+    <header>
+      <p class="kicker">Background</p>
+      <h1>How it works</h1>
+      <p class="meta">Yaoling Yang · <time datetime="2026-10-31">31 October 2026</time></p>
+    </header>
+    <section class="abstract"><p>The dark background of this site is a simulation, not a canned animation. It runs a planar surface code with bit-flip, phase-flip and measurement errors, and decodes it round by round with minimum-weight perfect matching in spacetime.</p></section>
+    <h2>What you are seeing</h2>
+    <p>The surface code stores quantum information in qubits on a lattice, and repeatedly measures parity checks that reveal errors without reading the stored information. Here every qubit can suffer a random X, Y or Z error, and each check can also report the wrong value.</p>
+    <ul><li><strong>Green and violet lines</strong> are bit-flip and phase-flip errors that have not been corrected yet. The two kinds live on two interlaced lattices and are decoded separately.</li><li><strong>Squares and diamonds</strong> are detection events: places where the reading of a check changed between two rounds. Squares sit on the bit-flip lattice and diamonds on the phase-flip lattice. An event can come from a real error or from a misread check. The deeper the colour, the longer the event has waited.</li><li><strong>Dashed curves</strong> are nearby alternatives, the <strong>thin solid curve</strong> is the chosen pair, and the <strong>thick cream path</strong> is the correction.</li><li><strong>Rings</strong> mark what the decoder takes for a misread check: two events at one check, paired in time, so that no qubit needs fixing. At the rates used here, more than 98% of the rings are real misreads.</li></ul>
+    <h2>How the decoder works</h2>
+    <p>An error chain lights up detection events only at its two ends, so the decoder has to guess which events belong together. Minimum-weight perfect matching picks the pairing with the smallest total length, on the assumption that short chains are more likely than long ones. Events may also pair with a boundary of the lattice.</p>
+    <p>Distance is counted in space and in time, so a single misread check, which produces two events at the same place, is explained by a short step in time.</p>
+    <p>Each round, matching is solved exactly for the events still open, with Edmonds' blossom algorithm in plain JavaScript in your browser. A pair is committed only once both of its events are at least two rounds old, and later rounds cannot undo it. Most pairs are committed after two rounds.</p>
+    <p>The growing diamonds are a picture of this search, and they are illustrative. The pairing has already been computed when they appear. Their size comes from the spatial distance of the pair: half of it for two events, all of it for an event matched to a boundary. The regions of the real algorithm can merge and need not stay symmetric.</p>
+    <h2>Controls</h2>
+    <p>Press <strong>Hide text</strong> in the dark theme to open the full-screen demo. There you can set the error rates and the round length, pause, and hold the left mouse button on the 2D lattice to disturb qubits. The ripple that follows the pointer is only a visual effect. The <strong>3D</strong>, <strong>Time</strong> and <strong>Side</strong> views show the same pattern with time as an extra direction, and the octahedra in those views are the spacetime version of the diamonds.</p>
+    <table><thead><tr><th>Setting</th><th>While reading</th><th>Full screen</th></tr></thead><tbody><tr><td>Error rate per qubit per round</td><td>0.4%</td><td>1%, adjustable</td></tr><tr><td>Misread rate per check per round</td><td>0.3%</td><td>0.67%, adjustable</td></tr><tr><td>Round length</td><td>1 s</td><td>0.75 s, adjustable</td></tr></tbody></table>
+    <p>Each error is a random X, Y or Z, so each lattice sees two thirds of that rate.</p>
+    <h2>Is it correct?</h2>
+    <p>A background can be wrong without anyone noticing, so the decoder was tested on its own. The matching agreed with brute-force enumeration on 37,600 random graphs, and the version with boundaries agreed on 4,000 more.</p>
+    <p>The threshold test uses the same matching on one lattice, decoding a whole block at once rather than streaming as on screen. With bit flips and misreads at the same rate \(p\), and as many rounds as the code distance, logical failure rates behave as a threshold requires, with curves crossing near 3%. Wang, Harrington and Preskill report that the method succeeds below about 2.9% for this noise model (<a href="https://arxiv.org/abs/quant-ph/0207088">arXiv:quant-ph/0207088</a>).</p>
+    <table><thead><tr><th>Distance</th><th>\(p = 2\%\)</th><th>\(p = 3\%\)</th><th>\(p = 4\%\)</th></tr></thead><tbody><tr><td>5</td><td>0.031</td><td>0.087</td><td>0.177</td></tr><tr><td>7</td><td>0.012</td><td>0.072</td><td>0.228</td></tr><tr><td>9</td><td>0.006</td><td>0.100</td><td>0.256</td></tr></tbody></table>
+    <p>These runs are small, so the crossing is only approximate. For the streaming decoder, the parity of its logical failure count was checked against an independent record of every error and correction, and they agreed in every episode.</p>
+    <h2>What it leaves out</h2>
+    <p>This is a demonstration, not a research simulator.</p>
+    <ul><li>Measurement errors are modelled directly, with no gate-level circuit underneath.</li><li>Weights are plain lattice distances, not derived from error probabilities.</li><li>X and Z errors are decoded separately, so the correlation in a Y error is ignored.</li><li>Only Pauli errors are tracked, classically. No quantum state is simulated.</li><li>The decoder streams, so its pairs are never revisited. To stay real-time, each round considers at most 110 events per lattice from a window of eight rounds, oldest first. The result is therefore not the global optimum for the whole run.</li><li>At the top of the sliders the decoder falls behind, and several hundred events stay open.</li></ul>
+    <footer class="note-footer">
+      <p>Last revised <time datetime="2026-10-31">2026-10-31</time>.</p>
+    </footer>
+  </article>
+</main>
+<script src="site.js" defer></script>
+</body>
+</html>

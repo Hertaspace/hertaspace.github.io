@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hertaspace.github.io/sitemap.xml

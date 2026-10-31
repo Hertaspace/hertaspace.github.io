@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIC-POVMs in every dimension, formalized in Lean 4 · Yaoling Yang</title>
+  <meta name="description" content="A machine-checked Lean 4 proof that SIC-POVMs exist in every finite dimension, the existence part of Zauner&#x27;s conjecture. It follows the proof of Radchenko and Wheeler, with a theorem of Appleby, Flammia and Kopp. Written by AI agents under human direction. Accepted by six kernels.">
+  <link rel="canonical" href="https://hertaspace.github.io/notes/sic-povms-lean.html">
+  <link rel="alternate" type="text/markdown" href="sic-povms-lean.md">
+  <link rel="icon" href="../avatar.jpg">
+  <link rel="preload" href="../fonts/newsreader-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#f0e9dd">
+  <link rel="stylesheet" id="css-light" href="../light.css">
+  <link rel="stylesheet" id="css-dark" href="../dark.css" media="not all">
+  <script>(function(){var t="dark";try{t=localStorage.getItem("site-theme")||"dark"}catch(e){}var r=document.documentElement;r.dataset.theme=t;document.getElementById("css-light").media=t==="dark"?"not all":"all";document.getElementById("css-dark").media=t==="dark"?"all":"not all";document.querySelector('meta[name="theme-color"]').content=t==="dark"?"#2f0f2d":"#f0e9dd"})()</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "SIC-POVMs in every dimension, formalized in Lean 4", "datePublished": "2026-10-25", "abstract": "A machine-checked Lean 4 proof that SIC-POVMs exist in every finite dimension, the existence part of Zauner's conjecture. It follows the proof of Radchenko and Wheeler, with a theorem of Appleby, Flammia and Kopp. Written by AI agents under human direction. Accepted by six kernels.", "url": "https://hertaspace.github.io/notes/sic-povms-lean.html", "author": [{"@type": "Person", "name": "Yaoling Yang"}], "keywords": ["SIC-POVM", "Zauner's conjecture", "Lean 4", "formal verification", "quantum information"], "isPartOf": {"@type": "WebSite", "name": "Hertaspace", "url": "https://hertaspace.github.io/"}}</script>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<nav class="topnav"><a href="../">Hertaspace</a><a href="sic-povms-lean.md">Markdown</a></nav>
+<main class="note">
+  <article>
+    <header>
+      <p class="kicker">Formalized</p>
+      <h1>SIC-POVMs in every dimension, formalized in Lean 4</h1>
+      <p class="meta">Yaoling Yang · <time datetime="2026-10-25">25 October 2026</time></p>
+    </header>
+    <section class="abstract"><p>A machine-checked Lean 4 proof that SIC-POVMs exist in every finite dimension, the existence part of Zauner's conjecture. It follows the proof of Radchenko and Wheeler, with a theorem of Appleby, Flammia and Kopp. Written by AI agents under human direction. Accepted by six kernels.</p></section>
+    <h2>Statement</h2>
+    <p>For every integer \(d \ge 1\) there exist \(d^2\) unit vectors \(\psi_i\) in \(\mathbb{C}^d\) with</p>
+    $$ |\langle \psi_i, \psi_j \rangle|^2 = \frac{1}{d+1} \qquad \text{for all } i \neq j. $$
+    <p>Such a family is the standard description of a symmetric informationally complete POVM (SIC-POVM). The statement is copied from Google DeepMind's <a href="https://github.com/google-deepmind/formal-conjectures">formal-conjectures</a>, where it is the existence formulation of Open Quantum Problem 23. The project also proves an analogue for rank-\(r\) SICs, whenever \(r \ge 1\), \(d > 2r + 1\) and \(r(d-r)\) divides \(d^2 - 1\).</p>
+    <h2>Credit</h2>
+    <p>The mathematics is due to D. Radchenko and C. Wheeler (<a href="https://arxiv.org/abs/2609.21892v2">arXiv:2609.21892</a>) and to M. Appleby, S. T. Flammia and G. S. Kopp (<a href="https://arxiv.org/abs/2501.03970">arXiv:2501.03970</a>). Māris Ozols has an earlier, independent Lean 4 formalization of the same existence results, <a href="https://github.com/marozols/SIC-existence">marozols/SIC-existence</a>. The Lean code here was written by large language model agents under human direction.</p>
+    <h2>Checks</h2>
+    <p>The proof uses only the axioms <code>propext</code>, <code>Classical.choice</code> and <code>Quot.sound</code>, and six kernels accept it. The project has 443 files and about 110,000 lines of Lean, and it builds on Mathlib. The <a href="https://github.com/Hertaspace/sic-povm-lean">repository</a> has the full proof outline, sources and verification records.</p>
+    <footer class="note-footer">
+      <h2>Cite</h2>
+      <pre>@misc{yang2026sicpovmlean,
+  author       = {Yang, Yaoling},
+  title        = {{SIC-POVMs} exist in every dimension: a {Lean} 4 formalization},
+  year         = {2026},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/Hertaspace/sic-povm-lean},
+  note         = {Release v1.0}
+}</pre>
+      <p>Last revised <time datetime="2026-10-25">2026-10-25</time>.</p>
+    </footer>
+  </article>
+</main>
+<script src="../site.js" defer></script>
+</body>
+</html>
