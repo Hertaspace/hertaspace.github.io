@@ -6,6 +6,13 @@
   <atom:link href="https://hertaspace.github.io/feed.xml" rel="self" type="application/rss+xml"/>
   <description>A log of research, learning, and whatever else I find interesting. Quantum metrology and quantum error correction.</description>
   <item>
+    <title>All Weyl–Heisenberg SICs and ghosts in dimensions 4 to 7</title>
+    <link>https://hertaspace.github.io/notes/sic-povm-counts.html</link>
+    <guid>https://hertaspace.github.io/notes/sic-povm-counts.html</guid>
+    <pubDate>Sat, 07 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Computer-aided proofs that the complexified Weyl–Heisenberg SIC equations have exactly 512, 4000, 6912 and 32928 solutions in dimensions 4 to 7. Half are SIC fiducials and, in these dimensions, the other half are ghosts. In dimensions 6 and 7 every solution has a Zauner symmetry of order 3, so the strong Zauner conjecture holds there.</description>
+  </item>
+  <item>
     <title>SIC-POVMs in every dimension, formalized in Lean 4</title>
     <link>https://hertaspace.github.io/notes/sic-povms-lean.html</link>
     <guid>https://hertaspace.github.io/notes/sic-povms-lean.html</guid>
